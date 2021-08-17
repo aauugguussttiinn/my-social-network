@@ -16,8 +16,12 @@ const Navigation = () => {
         </NavLink>
       </div>
       <div className="nav-right col-6 d-flex justify-content-end">
-        <button className="btn btn-primary mx-2">Sign In</button>
-        <button className="btn btn-outline-primary mx-2">Log In</button>
+        <NavLink exact to="/register" className="btn btn-primary mx-2">
+          Sign In
+        </NavLink>
+        <NavLink exact to="/login" className="btn btn-primary mx-2">
+          Log In
+        </NavLink>
       </div>
     </div>
   );
