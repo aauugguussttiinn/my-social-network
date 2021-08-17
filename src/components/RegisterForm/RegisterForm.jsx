@@ -1,12 +1,13 @@
 import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { createUser } from "redux/actions/userActions";
+import { createUser, loginUser } from "redux/actions/userActions";
 
-const RegisterForm = ({ handleUserCreation }) => {
+const RegisterForm = () => {
 
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
+  const [identifier, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
   
@@ -14,16 +15,16 @@ const RegisterForm = ({ handleUserCreation }) => {
       e.preventDefault();
 
       if (email && password) {
+        setIdentifier(email);
         const userData = {
           username,
           email,
           password,
         };
 
-        await dispatch(createUser(userData))
+        await dispatch(createUser(userData));
+        await dispatch(loginUser({identifier, password}))
       }
-
-
   };
   
   return (
