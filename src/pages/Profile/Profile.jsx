@@ -1,15 +1,15 @@
 import Navigation from 'components/Navigation/Navigation';
 import React from 'react';
 
-const Home = () => {
+const Profile = () => {
   return (
     <>
       <Navigation />
-      <div className="home">
-        Welcome home
+      <div className="profile">
+        Welcome to your profile page
       </div>
     </>
   );
 };
 
-export default Home;
+export default Profile;
