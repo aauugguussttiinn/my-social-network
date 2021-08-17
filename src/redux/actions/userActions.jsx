@@ -1,0 +1,27 @@
+import axios from 'axios';
+
+export const CREATE_USER = 'CREATE_USER';
+
+export const createUser = (data) => {
+  return (dispatch) => {
+    return fetch('http://localhost:1337/auth/local/register', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+  };
+};
+
+
+// export const createUser = (data) => {
+//   return (dispatch) => {
+//     return axios
+//       .post(`http://localhost:1337/auth/local/register`, data)
+//       .then(() => {
+//         dispatch({ type: CREATE_USER, payload: data });
+//       })
+//       .catch((err) => console.log(err));
+//   };
+// };
