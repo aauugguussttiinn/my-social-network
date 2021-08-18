@@ -31,12 +31,12 @@ const LoginForm = () => {
       <form className="col-6" onSubmit={ (e) => handleLogin(e) }>
         <div className="form-group">
           <label htmlFor="exampleInputEmail1">Email address</label>
-          <input type="email" className="form-control"
+          <input type="email" className="form-control" autoComplete="username"
             id="exampleInputEmail2" placeholder="Enter email" value={email} onChange={ (e) => setEmail(e.target.value) }></input>
         </div>
         <div className="form-group">
           <label htmlFor="exampleInputPassword1">Password</label>
-          <input type="password" className="form-control"
+          <input type="password" className="form-control" autoComplete="current-password"
             id="exampleInputPassword2" placeholder="Password" value={password} onChange={ (e) => setPassword(e.target.value) }></input>
         </div>
         <div className="form-check">
