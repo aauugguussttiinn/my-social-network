@@ -14,6 +14,7 @@ export const createUser = (data) => {
 };
 
 export const loginUser = (data) => {
+  console.log(data)
   return (dispatch) => {
     return fetch('http://localhost:1337/auth/local', {
       method: 'post',

@@ -7,7 +7,6 @@ const LoginForm = () => {
   
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [identifier, setIdentifier] = useState('');
   const dispatch = useDispatch();
 
 
@@ -15,9 +14,8 @@ const LoginForm = () => {
     e.preventDefault();
 
     if (email && password) {
-      setIdentifier(email)
       const userData = {
-        identifier,
+        identifier: email,
         password,
       };
 
