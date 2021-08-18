@@ -1,21 +1,19 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux"
+import { useSelector } from "react-redux"
 import Home from 'pages/Home/Home';
 import Register from 'pages/Register/Register';
 import Login from 'pages/Login/Login';
 import Profile from 'pages/Profile/Profile';
 import NotFound from 'pages/NotFound/NotFound';
 import Cookies from "js-cookie";
-// import loginUserWithCookie from 'auth/Cookies';
 import { useEffect } from 'react';
 
 const App = () => {
 
   const currentUser = useSelector((state) => state.user);
-  const dispatch = useDispatch()
 
-  const loginUserWithCookie = async(dispatch) => {
+  const loginUserWithCookie = async() => {
     const token = Cookies.get('token')
 
     const cookiesConfig = {
@@ -28,7 +26,6 @@ const App = () => {
   
     const response = await fetch(`http://localhost:1337/users/me`, cookiesConfig);
     const cookieData = await response.json();
-    // console.log(cookieData);
     if (cookieData) {
       return true;
     } else {
@@ -38,7 +35,6 @@ const App = () => {
   };
 
   const checkAuth = () => {
-    console.log('test')
     if (currentUser || loginUserWithCookie()) {
       console.log('User is logged in');
       return true;
@@ -48,12 +44,12 @@ const App = () => {
     }
   }
 
-  // useEffect(
-  //   () => {
-  //     checkAuth();
-  //   },
-  //   []
-  // );
+  useEffect(
+    () => {
+      checkAuth();
+    },
+    []
+  );
 
   const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={props => (

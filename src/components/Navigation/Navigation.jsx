@@ -1,12 +1,13 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+// import { useSelector, useDispatch } from "react-redux";
 import Cookies from "js-cookie";
 
 const Navigation = () => {
 
   const user = useSelector((state) => state.user);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   // console.log(user)
 
   const handleLogOut = () => {
