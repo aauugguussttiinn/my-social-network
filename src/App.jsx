@@ -6,6 +6,8 @@ import Register from 'pages/Register/Register';
 import Login from 'pages/Login/Login';
 import Profile from 'pages/Profile/Profile';
 import NotFound from 'pages/NotFound/NotFound';
+import loginUserWithCookie from 'auth/Cookies';
+import { useEffect } from 'react';
 
 const App = () => {
 
@@ -29,6 +31,13 @@ const App = () => {
         <Redirect to={{ pathname: '/login' }} />
       )
     )} />
+  );
+  
+  useEffect(
+    () => {
+      loginUserWithCookie()
+    },
+    []
   );
 
   return (
