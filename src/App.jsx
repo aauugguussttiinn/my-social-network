@@ -28,29 +28,32 @@ const App = () => {
   
     const response = await fetch(`http://localhost:1337/users/me`, cookiesConfig);
     const cookieData = await response.json();
-    console.log(cookieData);
+    // console.log(cookieData);
     if (cookieData) {
       return true;
     } else {
       return false;
     }
 
-    // const cookieLoginParams = {
-    //   identifier: ,
-    //   password: ,
-    // }
-    // await dispatch(loginUser(userData))
   };
 
   const checkAuth = () => {
-    if (currentUser || loginUserWithCookie() === true) {
-      // console.log('User is logged in');
+    console.log('test')
+    if (currentUser || loginUserWithCookie()) {
+      console.log('User is logged in');
       return true;
     } else {
-      // console.log('User is NOT logged in');
+      console.log('User is NOT logged in');
       return false;
     }
   }
+
+  // useEffect(
+  //   () => {
+  //     checkAuth();
+  //   },
+  //   []
+  // );
 
   const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={props => (
@@ -60,13 +63,6 @@ const App = () => {
         <Redirect to={{ pathname: '/login' }} />
       )
     )} />
-  );
-  
-  useEffect(
-    () => {
-      loginUserWithCookie()
-    },
-    []
   );
 
   return (
