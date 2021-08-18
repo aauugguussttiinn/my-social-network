@@ -34,13 +34,7 @@ export const loginUser = (userData) => async(dispatch) => {
 };
 
 
-// export const createUser = (data) => {
-//   return (dispatch) => {
-//     return axios
-//       .post(`http://localhost:1337/auth/local/register`, data)
-//       .then(() => {
-//         dispatch({ type: CREATE_USER, payload: data });
-//       })
-//       .catch((err) => console.log(err));
-//   };
-// };
+
+export const logoutUser = () => {
+
+};

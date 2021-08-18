@@ -1,11 +1,18 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { Cookies } from "js-cookie";
 
 const Navigation = () => {
 
   const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   // console.log(user)
+
+  const handleLogOut = () => {
+    Cookies.remove('token');
+    // dispatch(logoutUser());
+  }
 
   return (
     <div className="navigation d-flex align-items-center">
@@ -31,9 +38,7 @@ const Navigation = () => {
           </>
         )}
         {user && (
-          <NavLink exact to="/logout" className="btn btn-danger mx-2">
-            Log Out
-          </NavLink>
+          <button onClick={ () => handleLogOut() } className="btn btn-danger mx-2"> Log Out </button>
         )}
       </div>
     </div>

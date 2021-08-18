@@ -7,7 +7,6 @@ const RegisterForm = () => {
 
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
-  const [identifier, setIdentifier] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
   
@@ -15,15 +14,18 @@ const RegisterForm = () => {
       e.preventDefault();
 
       if (email && password) {
-        setIdentifier(email);
-        const userData = {
+        const userDataSignIn = {
           username,
           email,
           password,
         };
+        const userDataLogIn = {
+          identifier: email,
+          password,
+        };
 
-        await dispatch(createUser(userData));
-        await dispatch(loginUser({identifier, password}))
+        await dispatch(createUser(userDataSignIn));
+        await dispatch(loginUser(userDataLogIn));
       }
   };
   
