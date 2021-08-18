@@ -11,7 +11,6 @@ export default function userReducer(state = userInitialState, action) {
     case LOGIN_USER:
       // Cookies.set("token", action.payload.jwt)
       // ne pas oublier de supprimer le cookie
-      // console.log(userInitialState)
       // console.log(action.payload)
       // console.log(state)
       return {
