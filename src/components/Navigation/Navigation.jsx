@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { Cookies } from "js-cookie";
+import Cookies from "js-cookie";
 
 const Navigation = () => {
 
