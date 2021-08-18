@@ -13,21 +13,23 @@ export const createUser = (data) => {
   };
 };
 
-export const loginUser = (data) => {
-  // console.log(data)
-  return (dispatch) => {
-    return fetch('http://localhost:1337/auth/local', {
-      method: 'post',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(data)
-    })
-    .then(() => {
-      dispatch({ type: LOGIN_USER, payload: data });
-    })
-    .catch((err) => console.log(err));
+export const loginUser = (userData) => async(dispatch) => {
+  
+  const config = {
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(userData)
   };
+
+  const res = await fetch('http://localhost:1337/auth/local', config)
+  const data = await res.json();
+  if (data.user) {
+    dispatch({ type: LOGIN_USER, payload: data });
+  } else {
+    console.log('login fetch not working')
+  }
 };
 
 
