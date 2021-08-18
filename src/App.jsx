@@ -1,13 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { useSelector } from "react-redux"
+
 import Home from 'pages/Home/Home';
 import Register from 'pages/Register/Register';
 import Login from 'pages/Login/Login';
 import Profile from 'pages/Profile/Profile';
 import NotFound from 'pages/NotFound/NotFound';
+import Navigation from 'components/Navigation/Navigation';
 import Cookies from "js-cookie";
-import { useEffect } from 'react';
 
 const App = () => {
 
@@ -44,13 +45,6 @@ const App = () => {
     }
   }
 
-  useEffect(
-    () => {
-      checkAuth();
-    },
-    []
-  );
-
   const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={props => (
       checkAuth() ? (
@@ -63,6 +57,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
+        <Navigation />
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/register" exact component={Register} />

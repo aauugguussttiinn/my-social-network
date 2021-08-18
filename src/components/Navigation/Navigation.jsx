@@ -7,12 +7,9 @@ import Cookies from "js-cookie";
 const Navigation = () => {
 
   const user = useSelector((state) => state.user);
-  // const dispatch = useDispatch();
-  // console.log(user)
 
   const handleLogOut = () => {
     Cookies.remove('token');
-    // dispatch(logoutUser());
   }
 
   return (
