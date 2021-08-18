@@ -30,19 +30,19 @@ const LoginForm = () => {
       <div className="col-3"></div>
       <form className="col-6" onSubmit={ (e) => handleLogin(e) }>
         <div className="form-group">
-          <label for="exampleInputEmail1">Email address</label>
+          <label htmlFor="exampleInputEmail1">Email address</label>
           <input type="email" className="form-control"
             id="exampleInputEmail2" placeholder="Enter email" value={email} onChange={ (e) => setEmail(e.target.value) }></input>
         </div>
-        <div class="form-group">
-          <label for="exampleInputPassword1">Password</label>
+        <div className="form-group">
+          <label htmlFor="exampleInputPassword1">Password</label>
           <input type="password" className="form-control"
             id="exampleInputPassword2" placeholder="Password" value={password} onChange={ (e) => setPassword(e.target.value) }></input>
         </div>
-        <div class="form-check">
+        <div className="form-check">
           <input type="checkbox" className="form-check-input"
             id="exampleCheck2"></input>
-          <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          <label className="form-check-label" htmlFor="exampleCheck1">Check me out</label>
         </div>
         <input type="submit" className="btn btn-primary" value="Envoyer" />
       </form>
