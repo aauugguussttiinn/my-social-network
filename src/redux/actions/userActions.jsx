@@ -13,7 +13,8 @@ export const createUser = (data) => {
   };
 };
 
-export const loginUser = (userData) => async(dispatch) => {
+
+export const loginUser = (userData) => async(dispatch) => {  
   
   const config = {
     method: 'post',
