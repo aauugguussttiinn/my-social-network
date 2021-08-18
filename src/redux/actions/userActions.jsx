@@ -22,7 +22,11 @@ export const loginUser = (data) => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(data)
-    });
+    })
+    .then(() => {
+      dispatch({ type: LOGIN_USER, payload: data });
+    })
+    .catch((err) => console.log(err));
   };
 };
 
