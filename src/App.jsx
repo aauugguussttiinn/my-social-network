@@ -9,14 +9,14 @@ import NotFound from 'pages/NotFound/NotFound';
 
 const App = () => {
 
-  const currentUser = useSelector((state) => state.info);
+  const currentUser = useSelector((state) => state.user);
 
   const checkAuth = () => {
     if (currentUser) {
-      console.log('User is logged in');
+      // console.log('User is logged in');
       return true;
     } else {
-      console.log('User is NOT logged in');
+      // console.log('User is NOT logged in');
       return false;
     }
   }
