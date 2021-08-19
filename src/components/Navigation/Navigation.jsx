@@ -11,6 +11,7 @@ const Navigation = ({ auth }) => {
   const handleLogOut = () => {
     Cookies.remove('token');
     dispatch(logoutUser);
+    // return ( <Redirect to={{ pathname: '/' }} /> )
   }
 
   return (

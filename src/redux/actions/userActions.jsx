@@ -37,5 +37,5 @@ export const loginUser = (userData) => async(dispatch) => {
 
 
 export const logoutUser = () => {
-
+  return {}
 };

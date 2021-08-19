@@ -14,7 +14,7 @@ import Cookies from "js-cookie";
 
 const App = () => {
 
-  const currentUser = useSelector((state) => state.user);
+  const currentUser = useSelector((state) => state.userReducer.user);
   const [isAuthTrue, setIsAuthTrue] = useState();
   const [loading, setLoading] = useState(true);
 
