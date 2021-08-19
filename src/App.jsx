@@ -29,14 +29,14 @@ const App = () => {
   
     const response = await fetch(`http://localhost:1337/users/me`, cookiesConfig)
     const cookieData = await response.json();
-    console.log(cookieData)
+    // console.log(cookieData)
     // console.log('test')
     // console.log(cookieData);
-    if (cookieData.statusCode === 200) {
-      console.log("it returns true")
+    if (!cookieData.error) {
+      // console.log("it returns true")
       return true;
     } else {
-      console.log("it returns false")
+      // console.log("it returns false")
       return false;
     }
 
@@ -44,24 +44,27 @@ const App = () => {
 
   const checkAuth = async() => {
     const a = await (loginUserWithCookie());
-    console.log(a);
+    // console.log(a);
     // console.log(loginUserWithCookie())
     if (currentUser || a === true) {
-      console.log('User is logged in');
+      // console.log('User is logged in');
       setIsAuthorized(true);
-      console.log(isAuthorized);
+      // console.log(isAuthorized);
       return true;
     } else {
-      console.log('User is NOT logged in');
-      console.log(isAuthorized);
+      // console.log('User is NOT logged in');
+      // console.log(isAuthorized);
       return false;
     }
   }
-  console.log(`$$$$$$$$$$ ${isAuthorized}`)
+  // console.log(`checkAuth ${checkAuth()}`)
+  // console.log(`$$$$$$$$$$ ${isAuthorized}`)
   // console.log("aaaaaaaa");
   // console.log(checkAuth());
   // console.log("aaaaaaaa");
   const PrivateRoute = ({ component: Component, ...rest }) => (
+    // checkAuth(),
+    // console.log(`teeeeeest ${isAuthorized}`),
     <Route {...rest} render={props => (
       isAuthorized ? (
         <Component {...props} />
