@@ -27,7 +27,7 @@ const App = () => {
   });
 
   const loginUserWithCookie = async() => {
-    const token = Cookies.get('token')
+    const token = Cookies.get('token');
 
     const cookiesConfig = {
       method: 'get',

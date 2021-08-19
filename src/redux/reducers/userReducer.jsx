@@ -1,4 +1,4 @@
-import { CREATE_USER, LOGIN_USER, LOGOUT_USER, SET_USER_PROFILE } from "redux/actions/userActions";
+import { CREATE_USER, LOGIN_USER, LOGOUT_USER, SET_USER_PROFILE, EDIT_USER_PROFILE } from "redux/actions/userActions";
 import Cookies from "js-cookie";
 
 const userInitialState = {user : ""};
@@ -19,7 +19,20 @@ export default function userReducer(state = userInitialState, action) {
     case LOGOUT_USER:
       return emptyState;
     case SET_USER_PROFILE:
-      return action.payload;
+      return {
+        ...state,
+        username: action.payload.username,
+        email: action.payload.email,
+        id: action.payload.id,
+      };
+    case EDIT_USER_PROFILE:
+      return {
+        ...state,
+        username: action.payload.username,
+        email: action.payload.email,
+        id: action.payload.id,
+        changed: true,
+      }
     default:
       return state;
   }

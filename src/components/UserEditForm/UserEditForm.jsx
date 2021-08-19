@@ -1,13 +1,26 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { editUser } from 'redux/actions/userActions';
+import Cookies from "js-cookie";
 
 const UserEditForm = ({username, email}) => {
 
+  // const currentUser = useSelector((state) => state.userReducer);
   const [editUsername, setEditUsername] = useState(username);
   const [editEmail, setEditEmail] = useState(email);
-
+  const dispatch = useDispatch();
 
   const handleEditProfile = (e) => {
     e.preventDefault();
+    const token = Cookies.get('token')
+    
+    const newProfileData = {
+      username: editUsername,
+      email: editEmail,
+    };
+    dispatch(editUser(newProfileData, token));
+    window.location.reload();
+
   }
 
   return (
