@@ -9,7 +9,7 @@ const Login = () => {
 
   return (
     <div className="login">
-      { globalState.user !== undefined ? ( <Redirect to={{ pathname: '/' }} /> ) : ( <LoginForm /> )  }
+      { globalState.user !== "" ? ( <Redirect to={{ pathname: '/' }} /> ) : ( <LoginForm /> )  }
     </div>
   );
 };

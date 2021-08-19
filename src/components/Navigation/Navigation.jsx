@@ -11,7 +11,7 @@ const Navigation = ({ auth }) => {
   const handleLogOut = () => {
     Cookies.remove('token');
     dispatch(logoutUser);
-    // return ( <Redirect to={{ pathname: '/' }} /> )
+    window.location.reload();
   }
 
   return (

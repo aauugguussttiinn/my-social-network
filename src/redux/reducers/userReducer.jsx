@@ -1,7 +1,9 @@
 import { CREATE_USER, LOGIN_USER, LOGOUT_USER } from "redux/actions/userActions";
 import Cookies from "js-cookie";
+// import rootReducer from "redux/reducers"
 
-const userInitialState = {};
+const userInitialState = {user : ""};
+const emptyState = undefined
 
 export default function userReducer(state = userInitialState, action) {
 
@@ -16,7 +18,7 @@ export default function userReducer(state = userInitialState, action) {
         token: action.payload.jwt,
       };
     case LOGOUT_USER:
-      return state;
+      return emptyState;
     default:
       return state;
   }
