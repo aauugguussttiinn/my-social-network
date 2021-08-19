@@ -14,6 +14,7 @@ export default function userReducer(state = userInitialState, action) {
       return {
         ...state,
         user: action.payload.user,
+        changed: false,
         token: action.payload.jwt,
       };
     case LOGOUT_USER:
@@ -21,6 +22,7 @@ export default function userReducer(state = userInitialState, action) {
     case SET_USER_PROFILE:
       return {
         ...state,
+        changed: false,
         username: action.payload.username,
         email: action.payload.email,
         id: action.payload.id,
@@ -28,10 +30,10 @@ export default function userReducer(state = userInitialState, action) {
     case EDIT_USER_PROFILE:
       return {
         ...state,
+        changed: true,
         username: action.payload.username,
         email: action.payload.email,
         id: action.payload.id,
-        changed: true,
       }
     default:
       return state;

@@ -8,8 +8,7 @@ import { setUser } from 'redux/actions/userActions';
 
 const Profile = () => {
 
-  // const userProfile = useSelector((state) => state.userReducer);
-  // const [dataToggler, setDataToggle] = useState(false)
+  const userProfile = useSelector((state) => state.userReducer);
   const dispatch = useDispatch();
 
   const getUserProfile = async() => {
@@ -35,11 +34,11 @@ const Profile = () => {
 
   return (
     <div className="profile container">
-      <h1>Welcome to your profile page, { userProfile.username } !</h1>
+      {/* <h1>Welcome to your profile page, { userProfile.username } !</h1>
         <div className="my-profile-container">
           <UserProfile username={ userProfile.username } email={ userProfile.email } />
-        </div>
-      {/* { dataToggler === false ? (
+        </div> */}
+      { userProfile.changed === false ? (
         <>
           <h1>Welcome to your profile page, { userProfile.username } !</h1>
           <div className="my-profile-container">
@@ -47,8 +46,8 @@ const Profile = () => {
           </div>
         </>
       ) : (
-        <Redirect to={{ pathname: '/profile' }} />
-      )} */}
+        <Redirect to={{ pathname: '/' }} />
+      )}
     </div>
   );
 };

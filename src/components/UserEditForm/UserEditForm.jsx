@@ -19,7 +19,7 @@ const UserEditForm = ({username, email}) => {
       email: editEmail,
     };
     dispatch(editUser(newProfileData, token));
-    window.location.reload();
+    // window.location.reload();
 
   }
 
