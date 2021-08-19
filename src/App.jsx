@@ -25,7 +25,7 @@ const App = () => {
       },
     };
   
-    const response = await fetch(`http://localhost:1337/users/me`, cookiesConfig);
+    const response = await fetch(`http://localhost:1337/users/me`, cookiesConfig)
     const cookieData = await response.json();
     if (cookieData) {
       return true;
@@ -36,7 +36,8 @@ const App = () => {
   };
 
   const checkAuth = () => {
-    if (currentUser || loginUserWithCookie()) {
+    console.log(loginUserWithCookie())
+    if (currentUser || loginUserWithCookie() === true) {
       console.log('User is logged in');
       return true;
     } else {
@@ -57,7 +58,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
-        <Navigation />
+        <Navigation auth={ checkAuth() }/>
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/register" exact component={Register} />

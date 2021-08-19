@@ -4,7 +4,11 @@ import { useSelector } from "react-redux";
 // import { useSelector, useDispatch } from "react-redux";
 import Cookies from "js-cookie";
 
-const Navigation = () => {
+const Navigation = ({ auth }) => {
+
+  // console.log("navbar in")
+  // console.log(auth)
+  // console.log("navbar out")
 
   const user = useSelector((state) => state.user);
 
