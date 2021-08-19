@@ -1,19 +1,16 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
-import { useSelector } from "react-redux";
-// import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import Cookies from "js-cookie";
+import { logoutUser } from 'redux/actions/userActions';
 
 const Navigation = ({ auth }) => {
 
-  console.log("navbar in")
-  console.log(auth)
-  console.log("navbar out")
-
-  const user = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
   const handleLogOut = () => {
     Cookies.remove('token');
+    dispatch(logoutUser);
   }
 
   return (

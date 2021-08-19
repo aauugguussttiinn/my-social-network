@@ -1,4 +1,4 @@
-import { CREATE_USER, LOGIN_USER } from "redux/actions/userActions";
+import { CREATE_USER, LOGIN_USER, LOGOUT_USER } from "redux/actions/userActions";
 import Cookies from "js-cookie";
 
 const userInitialState = {};
@@ -10,14 +10,13 @@ export default function userReducer(state = userInitialState, action) {
       return [action.payload, ...state];
     case LOGIN_USER:
       Cookies.set("token", action.payload.jwt)
-      // ne pas oublier de supprimer le cookie
-      // console.log(action.payload)
-      // console.log(state)
       return {
         ...state,
         user: action.payload.user,
         token: action.payload.jwt,
       };
+    case LOGOUT_USER:
+      return state;
     default:
       return state;
   }
