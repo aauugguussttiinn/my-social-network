@@ -11,7 +11,7 @@ import Loader from 'components/Loader/Loader';
 
 const Profile = () => {
 
-  const userProfile = useSelector((state) => state.userReducer);
+  const userState = useSelector((state) => state.userReducer);
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
 
@@ -34,7 +34,7 @@ const Profile = () => {
   useEffect(() => {
     getUserProfile();
     },
-    [ userProfile.changed === false ]
+    [ userState.changed === false ]
   );
 
   return (
@@ -42,11 +42,11 @@ const Profile = () => {
       { loading ? (
         <Loader type='spin' color='#454545' />
       ) : ( 
-        ( userProfile.changed === false ? (
+        ( userState.changed === false ? (
           <>
-            <h1>Welcome to your profile page, { userProfile.username } !</h1>
+            <h1>Welcome to your profile page, { userState.username } !</h1>
             <div className="my-profile-container">
-              <UserProfile username={ userProfile.username } email={ userProfile.email } />
+              <UserProfile username={ userState.username } email={ userState.email } />
             </div>
           </>
            ) : (
@@ -54,20 +54,6 @@ const Profile = () => {
            )
         ))
       }
-      {/* <h1>Welcome to your profile page, { userProfile.username } !</h1>
-        <div className="my-profile-container">
-          <UserProfile username={ userProfile.username } email={ userProfile.email } />
-        </div> */}
-      {/* { userProfile.changed === false ? (
-        <>
-          <h1>Welcome to your profile page, { userProfile.username } !</h1>
-          <div className="my-profile-container">
-            <UserProfile username={ userProfile.username } email={ userProfile.email } />
-          </div>
-        </>
-      ) : (
-        <Redirect to={{ pathname: '/' }} />
-      )} */}
     </div>
   );
 };
