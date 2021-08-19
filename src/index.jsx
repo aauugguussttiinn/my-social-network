@@ -24,3 +24,4 @@ ReactDOM.render(
 );
 
 // npm i js-cookie
+// npm i react-loading

@@ -9,6 +9,7 @@ import Login from 'pages/Login/Login';
 import Profile from 'pages/Profile/Profile';
 import NotFound from 'pages/NotFound/NotFound';
 import Navigation from 'components/Navigation/Navigation';
+import Loader from 'components/Loader/Loader';
 import Cookies from "js-cookie";
 
 const App = () => {
@@ -57,7 +58,7 @@ const App = () => {
   const PrivateRoute = ({ component: Component, ...rest }) => (
       <>
         { loading ? (
-          <div>blabla</div>
+          <Loader type='spin' color='#454545' />
         ) : ( 
           < Route {...rest} render={ props => ( isAuthTrue ? ( <Component {...props} />) : (  <Redirect to={{ pathname: '/login' }} /> ) )} />)
         }
