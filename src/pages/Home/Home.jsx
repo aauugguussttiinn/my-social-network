@@ -2,8 +2,9 @@ import React from 'react';
 
 const Home = () => {
   return (
-    <div className="home">
-      Welcome home
+    <div className="home container">
+      Welcome on My Social Network. This website is a training to Redux and React.
+      We use auth and routing to create a small social media website.
     </div>
   );
 };

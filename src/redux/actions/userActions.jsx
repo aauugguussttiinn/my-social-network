@@ -1,6 +1,8 @@
 export const CREATE_USER = 'CREATE_USER';
 export const LOGIN_USER = 'LOGIN_USER';
 export const LOGOUT_USER = 'LOGIN_USER';
+export const SET_USER_PROFILE = 'GET_USER_PROFILE';
+
 
 export const createUser = (data) => {
   return (dispatch) => {
@@ -34,8 +36,13 @@ export const loginUser = (userData) => async(dispatch) => {
   }
 };
 
-
-
 export const logoutUser = () => {
   return {}
+};
+
+export const setUser = (cookiesConfig) => async(dispatch) => {
+
+  const response = await fetch(`http://localhost:1337/users/me`, cookiesConfig)
+  const cookieData = await response.json();
+  dispatch({ type: SET_USER_PROFILE, payload: cookieData })
 };

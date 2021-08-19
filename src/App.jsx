@@ -2,15 +2,16 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import { useSelector } from "react-redux"
+import Cookies from "js-cookie";
 
 import Home from 'pages/Home/Home';
 import Register from 'pages/Register/Register';
 import Login from 'pages/Login/Login';
 import Profile from 'pages/Profile/Profile';
 import NotFound from 'pages/NotFound/NotFound';
+
 import Navigation from 'components/Navigation/Navigation';
 import Loader from 'components/Loader/Loader';
-import Cookies from "js-cookie";
 
 const App = () => {
 
