@@ -67,7 +67,7 @@ const App = () => {
 
   return (
     <BrowserRouter>
-        <Navigation auth={ checkAuth() }/>
+        <Navigation auth={ isAuthTrue }/>
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/register" exact component={Register} />

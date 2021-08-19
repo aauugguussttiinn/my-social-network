@@ -6,9 +6,9 @@ import Cookies from "js-cookie";
 
 const Navigation = ({ auth }) => {
 
-  // console.log("navbar in")
-  // console.log(auth)
-  // console.log("navbar out")
+  console.log("navbar in")
+  console.log(auth)
+  console.log("navbar out")
 
   const user = useSelector((state) => state.user);
 
@@ -22,14 +22,14 @@ const Navigation = ({ auth }) => {
         <NavLink exact to="/" activeClassName="nav-active">
           Accueil
         </NavLink>
-        {user && (
+        {auth && (
           <NavLink exact to="/profile" activeClassName="nav-active">
             Profile
           </NavLink>
         )}
       </div>
       <div className="nav-right col-6 d-flex justify-content-end">
-        {!user && (
+        {!auth && (
           <>
             <NavLink exact to="/register" className="btn btn-primary mx-2">
               Sign In
@@ -39,7 +39,7 @@ const Navigation = ({ auth }) => {
             </NavLink>
           </>
         )}
-        {user && (
+        {auth && (
           <button onClick={ () => handleLogOut() } className="btn btn-danger mx-2"> Log Out </button>
         )}
       </div>
