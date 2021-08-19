@@ -32,8 +32,8 @@ const Profile = () => {
   );
 
   return (
-    <div className="profile">
-      Welcome to your profile page
+    <div className="profile container">
+      <h1>Welcome to your profile page, { userProfile.username } !</h1>
       <div className="my-profile-container">
         <UserProfile username={ userProfile.username } email={ userProfile.email } />
       </div>
